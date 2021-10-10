@@ -9,9 +9,7 @@ const About = (props) => {
     var city = props.data.address.city;
     var state = props.data.address.state;
     var zip = props.data.address.zip;
-    var phone = props.data.phone;
     var email = props.data.email;
-    var resumeDownload = props.data.resumedownload;
   }
 
   return (

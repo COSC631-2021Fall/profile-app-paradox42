@@ -5,6 +5,8 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import About from "./Components/About";
 import Resume from "./Components/Resume";
+import Navigation from "./Components/Navigation";
+import { Switch, Route} from "react-router-dom";
 
 function App() {
   const [resumeData, setResumeData] = useState({});
@@ -27,12 +29,21 @@ function App() {
   useEffect(getResumeData, []);
 
   return (
-    <div className="App">
-      <Header data={resumeData.main} />
-      <About data={resumeData.main} />
-      <Resume data={resumeData.resume} />
+    <main>
+      <Navigation />
+      <Switch>
+        <Route path="/about">
+          <About data={resumeData.main} />
+        </Route>
+        <Route path="/resume">
+          <Resume data={resumeData.resume} />
+        </Route>
+        <Route path="/">
+          <Header data={resumeData.main} />
+        </Route>
+      </Switch>
       <Footer data={resumeData.main} />
-    </div>
+    </main>
   );
 }
 
